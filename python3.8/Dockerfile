@@ -1,7 +1,13 @@
+######
+## Stage 1: Copy layer - could be done in one step but better copy it to be prepared for the future
+######
 FROM scratch as runtime
 # Copy extracted python runtime
 ADD ./python3.8-extracted-runtime.tar.gz /opt
 
+######
+## Stage 2: Inherit the baseimage and enrich it with the python 3.8 runtime
+######
 FROM ghcr.io/benjitrapp/asimov-lambda-baseimage:main
 
 # Copy the runtime into base image
@@ -24,8 +30,6 @@ RUN pip install -U pip setuptools wheel --no-cache-dir && \
     pipx install aws-lambda-builders==1.2.0 && \
     pipx install aws-sam-cli==1.15.0
 
-
 USER sbx_user1051
 
 ENTRYPOINT ["/var/rapid/init", "--bootstrap", "/var/runtime/bootstrap", "--enable-msg-logs"]
-
