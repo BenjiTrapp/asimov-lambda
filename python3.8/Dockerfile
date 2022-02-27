@@ -2,7 +2,7 @@ FROM scratch as runtime
 # Copy extracted python runtime
 ADD ./python3.8-extracted-runtime.tar.gz /opt
 
-FROM baseimage
+FROM ghcr.io/benjitrapp/asimov-lambda-baseimage:main
 
 # Copy the runtime into base image
 COPY --from=runtime /opt/* /var/
