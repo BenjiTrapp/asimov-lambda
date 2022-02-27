@@ -1,3 +1,5 @@
+[![Asimov Baseimage](https://github.com/BenjiTrapp/asimov-lambda/actions/workflows/docker-asimov-baseimage-publish.yml/badge.svg)](https://github.com/BenjiTrapp/asimov-lambda/actions/workflows/docker-asimov-baseimage-publish.yml)
+
 # asimov-lambda
 Reassambling AWS Lambda into a Dockerized version base on the dockerized Amazon Linux image. Docker rock, but AWS Lambda still tells from itself that it sees itself as an EC2 instance. In my oppinion it still must be some sort of a container system. This drill here helps me hopefully to understand in which way such a container system could work. 
 
